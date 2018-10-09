@@ -6,17 +6,21 @@ class PhotoDetail extends Component {
     const category = this.props.match.params.category
     const index = this.props.match.params.index
     return (
-      <article>
+      <div className="wrapper">
         <h1>{Data[category].photos[index].title}</h1>
-        <img src={Data[category].photos[index].imageURL} />
+        <img
+          className="PhotoD"
+          src={Data[category].photos[index].imageURL}
+          alt="a list fo gear"
+        />
         <aside>{Data[category].photos[index].description}</aside>
         <aside>{Data[category].photos[index].price}</aside>
-        <button>
+        <button className="buy">
           <a target="_blank" href={Data[category].photos[index].sourceURL}>
             Buy
           </a>
         </button>
-      </article>
+      </div>
     )
   }
 }

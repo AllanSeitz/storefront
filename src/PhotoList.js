@@ -7,18 +7,22 @@ class PhotoList extends Component {
     console.log(this.props)
     const category = this.props.match.params.category
     return (
-      <article>
+      <>
         <h1>{Data[category].title}</h1>
         <h4>{Data[category].description}</h4>
-        {Data[category].photos.map((photo, index) => {
-          return (
-            <figure>
-              <img className="URL" src={photo.imageURL} />
-              <Link to={`/${category}/${index}`}>{photo.title}</Link>
-            </figure>
-          )
-        })}
-      </article>
+        <article>
+          {Data[category].photos.map((photo, index) => {
+            return (
+              <figure>
+                <img className="URL" src={photo.imageURL} />
+                <button className="links">
+                  <Link to={`/${category}/${index}`}>{photo.title}</Link>
+                </button>
+              </figure>
+            )
+          })}
+        </article>
+      </>
     )
   }
 }

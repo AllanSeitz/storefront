@@ -10,31 +10,32 @@ class App extends Component {
       <Router>
         <>
           <header>
-            <h1>Shopping:</h1>
+            <h1>Allan's Emporium</h1>
             <h2>Browse for Purchases</h2>
           </header>
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>/
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/fresh-water-fishing">Gear</Link>/
+                <Link to="/fresh-water-fishing"> Fresh Water Gear</Link>
               </li>
               <li>
-                <Link to="/Lures">Lures</Link>/
+                <Link to="/Lures">Lures</Link>
               </li>
               <li>
                 <Link to="/clubs">Golf-Clubs</Link>
               </li>
             </ul>
           </nav>
-          <Switch>
-            {/* <Route exact path="/Inventory" component={AllItems} /> */}
-            <Route exact path="/" component={CategoryList} />
-            <Route exact path="/:category" component={PhotoList} />
-            <Route path="/:category/:index" component={PhotoDetail} />
-          </Switch>
+          <div className="main-page">
+            <Switch>
+              <Route exact path="/" component={CategoryList} />
+              <Route exact path="/:category" component={PhotoList} />
+              <Route path="/:category/:index" component={PhotoDetail} />
+            </Switch>
+          </div>
         </>
       </Router>
     )

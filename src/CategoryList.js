@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
 import Data from './Data.json'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-class CategoryList extends Component {
+class Category extends Component {
   render() {
     return (
-      <main>
-        <h1>Featured ITems</h1>
-        {Object.keys(Data).map(category => {
+      <div>
+        {Data[this.props.categoryName].photos.map((photo, index) => {
           return (
-            <aside className="gear">
-              <p className="text">{Data[category].description}</p>
-              <img
-                className="main-image"
-                src={Data[category].photos[0].imageURL}
-              />
-            </aside>
+            <figure>
+              <img className="URL" src={photo.imageURL} />
+              <button className="links">
+                <Link to={`/${this.props.categoryName}/${index}`}>
+                  {photo.title}
+                </Link>
+              </button>
+            </figure>
           )
         })}
-      </main>
+      </div>
     )
   }
 }
 
-export default CategoryList
+export default Category

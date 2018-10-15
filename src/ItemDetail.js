@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Data from './Data.json'
 
-class PhotoDetail extends Component {
+class ItemDetail extends Component {
   render() {
     const category = this.props.match.params.category
     const index = this.props.match.params.index
@@ -25,4 +25,4 @@ class PhotoDetail extends Component {
   }
 }
 
-export default PhotoDetail
+export default ItemDetail

@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import Home from './Home'
 import CategoryList from './CategoryList'
-import PhotoList from './PhotoList'
-import PhotoDetail from './PhotoDetail'
+import ItemDetail from './ItemDetail'
+import Inventory from './Inventory'
+import Data from './Data.json'
 
 class App extends Component {
   render() {
@@ -19,21 +21,23 @@ class App extends Component {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/fresh-water-fishing"> Fresh Water Gear</Link>
+                <Link to="/all">All</Link>
               </li>
-              <li>
-                <Link to="/Lures">Lures</Link>
-              </li>
-              <li>
-                <Link to="/clubs">Golf-Clubs</Link>
-              </li>
+              {Object.keys(Data).map(category => {
+                return (
+                  <li>
+                    <Link to={`/${category}`}>{Data[category].title}</Link>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
           <div className="main-page">
             <Switch>
-              <Route exact path="/" component={CategoryList} />
-              <Route exact path="/:category" component={PhotoList} />
-              <Route path="/:category/:index" component={PhotoDetail} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/all" component={Inventory} />
+              <Route exact path="/:category" component={CategoryList} />
+              <Route path="/:category/:index" component={ItemDetail} />
             </Switch>
           </div>
         </>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Category from './CategoryList'
+import Category from './Category'
 import Data from './Data.json'
 
 class Inventory extends Component {

@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import Category from './Category'
 import Data from './Data.json'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 class Category extends Component {
   render() {
-    console.log(this.props)
-    const categoryName = this.props.match.params.category
+    const categoryName =
+      this.props.categoryName || this.props.match.params.categoryName
+
     return (
-      <>
-        <h1>{Data[categoryName].title}</h1>
-        <h4>{Data[categoryName].description}</h4>
-        <article>
-          <Category categoryName={categoryName} />
-        </article>
-      </>
+      <div>
+        {Data[categoryName].photos.map((photo, index) => {
+          return (
+            <figure>
+              <img className="URL" src={photo.imageURL} />
+              <button className="links">
+                <Link to={`/${categoryName}/${index}`}>{photo.title}</Link>
+              </button>
+            </figure>
+          )
+        })}
+      </div>
     )
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Home from './Home'
-import CategoryList from './CategoryList'
+import Category from './Category'
 import ItemDetail from './ItemDetail'
 import Inventory from './Inventory'
 import Data from './Data.json'
@@ -36,8 +36,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/all" component={Inventory} />
-              <Route exact path="/:category" component={CategoryList} />
-              <Route path="/:category/:index" component={ItemDetail} />
+              <Route exact path="/:categoryName" component={Category} />
+              <Route path="/:categoryName/:index" component={ItemDetail} />
             </Switch>
           </div>
         </>

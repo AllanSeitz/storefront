@@ -10,15 +10,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <>
-          <header>
-            <h1>Allan's Emporium</h1>
-            <h2>Browse for Purchases</h2>
-          </header>
-          <nav>
-            <ul>
+        <div className="container-fluid">
+          <nav className="navbar navbar-default navbar-fixed-top">
+            <ul className="nav navbar-nav">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" className="navbar-brand">
+                  <i class="fas fa-store brand-icon" />
+                  Allan's Emporium
+                </Link>
               </li>
               <li>
                 <Link to="/all">All</Link>
@@ -32,6 +31,7 @@ class App extends Component {
               })}
             </ul>
           </nav>
+
           <div className="main-page">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -40,7 +40,7 @@ class App extends Component {
               <Route path="/:categoryName/:index" component={ItemDetail} />
             </Switch>
           </div>
-        </>
+        </div>
       </Router>
     )
   }

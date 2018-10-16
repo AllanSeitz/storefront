@@ -3,20 +3,21 @@ import Data from './Data.json'
 
 class ItemDetail extends Component {
   render() {
-    const category = this.props.match.params.category
     const index = this.props.match.params.index
+
+    const category = Data[this.props.match.params.categoryName]
     return (
       <div className="wrapper">
-        <h1>{Data[category].photos[index].title}</h1>
+        <h1>{category.photos[index].title}</h1>
         <img
           className="PhotoD"
-          src={Data[category].photos[index].imageURL}
+          src={category.photos[index].imageURL}
           alt="a list fo gear"
         />
-        <aside>{Data[category].photos[index].description}</aside>
-        <aside>{Data[category].photos[index].price}</aside>
+        <aside>{category.photos[index].description}</aside>
+        <aside>{category.photos[index].price}</aside>
         <button className="buy">
-          <a target="_blank" href={Data[category].photos[index].sourceURL}>
+          <a target="_blank" href={category.photos[index].sourceURL}>
             Buy
           </a>
         </button>

@@ -12,10 +12,13 @@ class Category extends Component {
         {Data[categoryName].photos.map((photo, index) => {
           return (
             <figure>
-              <img className="URL" src={photo.imageURL} />
-              <button className="links">
-                <Link to={`/${categoryName}/${index}`}>{photo.title}</Link>
-              </button>
+              <img className="img-thumbnail" src={photo.imageURL} />
+              <Link
+                className="btn btn-primary"
+                to={`/${categoryName}/${index}`}
+              >
+                {photo.title}
+              </Link>
             </figure>
           )
         })}

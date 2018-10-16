@@ -15,7 +15,7 @@ class App extends Component {
             <ul className="nav navbar-nav">
               <li>
                 <Link to="/" className="navbar-brand">
-                  <i class="fas fa-store brand-icon" />
+                  <i className="fas fa-store brand-icon" />
                   Allan's Emporium
                 </Link>
               </li>

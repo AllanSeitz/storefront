@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+
 import Data from './Data.json'
 
 class Home extends Component {
@@ -19,6 +21,11 @@ class Home extends Component {
                       alt="fishing gear"
                       src={Data[category].photos[0].imageURL}
                     />
+                  </li>
+                  <li className="list-group-item">
+                    <Link className="btn btn-info" to={`/${category}`}>
+                      {Data[category].title}
+                    </Link>
                   </li>
                 </ul>
               )

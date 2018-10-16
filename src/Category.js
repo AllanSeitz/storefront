@@ -8,20 +8,28 @@ class Category extends Component {
       this.props.categoryName || this.props.match.params.categoryName
 
     return (
-      <div>
-        {Data[categoryName].photos.map((photo, index) => {
-          return (
-            <figure>
-              <img className="img-thumbnail" src={photo.imageURL} />
-              <Link
-                className="btn btn-primary"
-                to={`/${categoryName}/${index}`}
-              >
-                {photo.title}
-              </Link>
-            </figure>
-          )
-        })}
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-xs-12 col-md-8">
+            {Data[categoryName].photos.map((photo, index) => {
+              return (
+                <ul className="list-group">
+                  <li className="list-group-item">
+                    <img className="img-thumbnail" src={photo.imageURL} />
+                  </li>
+                  <li className="list-group-item">
+                    <Link
+                      className="btn btn-info"
+                      to={`/${categoryName}/${index}`}
+                    >
+                      {photo.title}
+                    </Link>
+                  </li>
+                </ul>
+              )
+            })}
+          </div>
+        </div>
       </div>
     )
   }

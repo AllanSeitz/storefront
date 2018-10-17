@@ -14,6 +14,7 @@ class Category extends Component {
             {Data[categoryName].photos.map((photo, index) => {
               return (
                 <ul className="list-group">
+                  <h2 className="media-heading">{photo.title}</h2>
                   <li className="list-group-item">
                     <img className="img-thumbnail" src={photo.imageURL} />
                   </li>
